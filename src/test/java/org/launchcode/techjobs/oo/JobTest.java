@@ -89,4 +89,26 @@ public class JobTest {
 
     }
 
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        String jobToString = job.toString();
+
+        assertTrue(jobToString.startsWith("\n"));
+        assertTrue(jobToString.endsWith("\n"));
+
+
+        String expected = "ID: " + job.getId() +
+                "\nName: Product tester" +
+                "\nEmployer: ACME" +
+                "\nLocation: Desert" +
+                "\nPosition Type: Quality control" +
+                "\nCore Competency: Persistence";
+        assertEquals(expected, jobToString.trim());
+    }
+
+
+
 }
